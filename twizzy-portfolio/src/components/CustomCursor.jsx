@@ -13,7 +13,7 @@ function CustomCursor() {
     };
 
     const handleMouseOver = (e) => {
-      if (e.target.closest("a, button, .card")) {
+      if (e.target.closest("a, button, .card, .tech-card")) {
         setHovering(true);
       } else {
         setHovering(false);

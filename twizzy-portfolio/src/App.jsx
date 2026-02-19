@@ -22,33 +22,23 @@ function App() {
       <main className="content">
         {/* HERO */}
         <section className="hero" id="home">
-          <h1>twizzy</h1>
+          <h1>Noel Kivelä</h1>
 
           <p className="about">
-            Creative developer building bold, aesthetic, and modern web
-            experiences with smooth interactions and clean design systems.
+            Full-stack Junior Dev • 19 years old
           </p>
 
-          <p className="location">📍 Your City, Country</p>
+          <p className="location">📍 Tampere, Finland</p>
         </section>
 
         {/* EXPERIENCE */}
         <Section id="experience" title="Experience">
           <div className="card">
-            <h3>Frontend Developer</h3>
-            <p>Company Name • 2023 – Present</p>
+            <h3>Full-stack Developer</h3>
+            <p>Crowdsorsa • 2024 • Intership</p>
             <p>
               Building high-performance React applications with scalable
               component architecture and polished UI animations.
-            </p>
-          </div>
-
-          <div className="card">
-            <h3>Freelance Developer</h3>
-            <p>2022 – 2023</p>
-            <p>
-              Designed and developed custom portfolio websites and business
-              platforms with modern aesthetics and responsive layouts.
             </p>
           </div>
         </Section>
@@ -56,36 +46,66 @@ function App() {
         {/* PROJECTS */}
         <Section id="projects" title="Projects">
           <div className="card">
-            <h3>Luxury Portfolio</h3>
+            <h3>Weather App</h3>
             <p>
-              A high-end React portfolio featuring custom cursor, glow effects,
-              glass UI, and animated gradients.
+              Simple clean weather app made by React and OpenWeather API.
             </p>
           </div>
 
           <div className="card">
-            <h3>Dashboard Platform</h3>
+            <h3>Raccoon Fanshop</h3>
             <p>
-              Interactive dashboard with authentication, dynamic data
-              rendering, and responsive component system.
+              Simple online shop for people who love raccoons. Used technologies: React, Vite, Knex, MySQL
             </p>
           </div>
 
           <div className="card">
-            <h3>E-Commerce UI</h3>
+            <h3>Luh Cat Runner</h3>
             <p>
-              Modern storefront interface with filtering, cart logic,
-              and smooth micro-interactions.
+              A cool spin-off game made by unity and C#.
             </p>
           </div>
         </Section>
 
+{/* TECHNOLOGIES */}
+<Section id="technologies" title="Technologies I Use">
+  <div className="tech-grid">
+    {[
+      { name: "Linux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      { name: "Windows", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+      { name: "CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Tailwind", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" },
+      { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "Vite", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" },
+      { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1280px-Amazon_Web_Services_Logo.svg.png" }
+    ].map((tech) => (
+      <div
+        key={tech.name}
+        className="tech-card"
+        onMouseEnter={(e) => e.currentTarget.classList.add("cursor-hover")}
+        onMouseLeave={(e) => e.currentTarget.classList.remove("cursor-hover")}
+      >
+        <img src={tech.logo} alt={tech.name} />
+        <p>{tech.name}</p>
+      </div>
+    ))}
+  </div>
+</Section>
+
+
+
+
         {/* CONTACT */}
         <Section id="contact" title="Contact Me">
           <div className="card">
-            <p><strong>Email:</strong> your@email.com</p>
-            <p><strong>GitHub:</strong> github.com/yourusername</p>
-            <p><strong>LinkedIn:</strong> linkedin.com/in/yourusername</p>
+            <p><strong>Email:</strong> <a href="mailto:noel.kivela@gmail.com">noel.kivela@gmail.com</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/TwizzyNoel" target="_blank" rel="noopener noreferrer">https://github.com/TwizzyNoel</a></p>
           </div>
         </Section>
       </main>

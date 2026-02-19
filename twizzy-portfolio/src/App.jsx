@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar";
 import Section from "./components/Section";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   return (
     <div className={darkMode ? "app dark" : "app"}>

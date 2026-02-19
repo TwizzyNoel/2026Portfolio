@@ -1,123 +1,318 @@
+/* ===============================
+   ROOT VARIABLES
+================================= */
+
 :root {
-  --black: #111111;
-  --pink: #f8c8dc;
-  --blue: #bde0fe;
-  --white: #ffffff;
-  --gray: #777;
+  --pink: #f7b5d8;
+  --blue: #a8d8ff;
+
+  --dark-bg: #0e0e11;
+  --dark-card: #1a1a20;
+  --dark-text: #ffffff;
+
+  --light-bg: #faf7fb;
+  --light-card: #ffffff;
+  --light-text: #111827;
+
+  --glow-pink: 0 0 25px rgba(247, 181, 216, 0.5);
+  --glow-blue: 0 0 25px rgba(168, 216, 255, 0.5);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
   scroll-behavior: smooth;
 }
 
+/* ===============================
+   APP THEMES
+================================= */
+
 .app {
   display: flex;
-  background: var(--white);
-  color: var(--black);
-  transition: all 0.3s ease;
+  min-height: 100vh;
+  transition: all 0.4s ease;
 }
+
+/* DARK DEFAULT */
 
 .app.dark {
-  background: var(--black);
-  color: var(--white);
+  background: radial-gradient(circle at top left, #141419, #0e0e11);
+  color: var(--dark-text);
 }
 
-/* SIDEBAR */
+/* LIGHT MODE */
+
+.app:not(.dark) {
+  background: var(--light-bg);
+  color: var(--light-text);
+}
+
+/* ===============================
+   SIDEBAR
+================================= */
 
 .sidebar {
-  width: 220px;
+  width: 250px;
   height: 100vh;
   position: sticky;
   top: 0;
-  background: var(--black);
-  color: var(--white);
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2rem 1.5rem;
+  transition: all 0.4s ease;
 }
+
+/* Dark Sidebar */
+
+.app.dark .sidebar {
+  background: linear-gradient(180deg, #141419, #1a1a20);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Light Sidebar */
+
+.app:not(.dark) .sidebar {
+  background: #ffffff;
+  border-right: 1px solid #eee;
+}
+
+/* Nav Links */
 
 .sidebar nav {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .sidebar a {
-  color: var(--pink);
   text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
+  font-size: 1.1rem;
+  font-weight: 700;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.sidebar a:hover {
+/* Dark link style */
+
+.app.dark .sidebar a {
+  color: var(--pink);
+}
+
+.app.dark .sidebar a:hover {
   color: var(--blue);
+  transform: translateX(6px);
+  text-shadow: var(--glow-blue);
 }
 
-.dark-toggle {
-  font-size: 0.9rem;
+/* Light link style */
+
+.app:not(.dark) .sidebar a {
+  color: #111827;
 }
 
-/* CONTENT */
+.app:not(.dark) .sidebar a:hover {
+  color: #ff6ec7;
+  transform: translateX(6px);
+}
+
+/* ===============================
+   MODE TOGGLE BUTTON
+================================= */
+
+.mode-toggle {
+  padding: 1rem;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Dark Mode Button */
+
+.app.dark .mode-toggle {
+  background: linear-gradient(90deg, var(--pink), var(--blue));
+  color: #111;
+  box-shadow: var(--glow-pink);
+}
+
+.app.dark .mode-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* Light Mode Button */
+
+.app:not(.dark) .mode-toggle {
+  background: #111827;
+  color: white;
+}
+
+.app:not(.dark) .mode-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   CONTENT
+================================= */
 
 .content {
   flex: 1;
-  padding: 4rem;
+  padding: 6rem;
 }
 
-/* HERO */
+/* ===============================
+   HERO
+================================= */
 
 .hero h1 {
-  font-size: 3rem;
-  color: var(--pink);
+  font-size: 4.5rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+}
+
+/* Dark hero gradient */
+
+.app.dark .hero h1 {
+  background: linear-gradient(90deg, var(--pink), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: var(--glow-pink);
+}
+
+/* Light hero solid */
+
+.app:not(.dark) .hero h1 {
+  color: #111827;
 }
 
 .about {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  max-width: 500px;
+  font-size: 1.3rem;
+  max-width: 650px;
+  line-height: 1.8;
+  opacity: 0.85;
 }
 
 .location {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  font-weight: 700;
   color: var(--blue);
 }
 
-/* SECTIONS */
+/* ===============================
+   SECTIONS
+================================= */
 
 .section {
-  margin-top: 5rem;
+  margin-top: 7rem;
 }
 
 .section h2 {
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-  color: var(--blue);
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 3rem;
 }
 
-/* CARD */
+/* Dark section heading */
+
+.app.dark .section h2 {
+  color: var(--pink);
+}
+
+/* Light section heading */
+
+.app:not(.dark) .section h2 {
+  color: #ff6ec7;
+}
+
+/* ===============================
+   CARDS
+================================= */
 
 .card {
-  background: rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  transition: 0.3s;
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  transition: all 0.4s ease;
 }
 
+/* Dark cards */
+
 .app.dark .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--dark-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.app.dark .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Light cards */
+
+.app:not(.dark) .card {
+  background: var(--light-card);
+  border: 1px solid #eee;
+}
+
+.app:not(.dark) .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
 }
 
 .card h3 {
-  color: var(--pink);
-  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+}
+
+.app.dark .card h3 {
+  background: linear-gradient(90deg, var(--pink), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app:not(.dark) .card h3 {
+  color: #111827;
 }
 
 .card p {
-  color: var(--gray);
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* ===============================
+   SCROLLBAR
+================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--pink), var(--blue));
+  border-radius: 10px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+
+  .content {
+    padding: 3rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
 }

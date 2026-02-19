@@ -8,16 +8,12 @@ function Sidebar({ darkMode, setDarkMode }) {
           <a href="#contact">Contact</a>
         </nav>
   
-        <div className="dark-toggle">
-          <label>
-            <input
-              type="checkbox"
-              checked={darkMode}
-              onChange={() => setDarkMode(!darkMode)}
-            />
-            Dark Mode
-          </label>
-        </div>
+        <button
+          className="mode-toggle"
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
+        </button>
       </aside>
     );
   }

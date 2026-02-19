@@ -343,6 +343,37 @@ body, a, button, .card, .app {
   border-image: linear-gradient(90deg, var(--pink), var(--blue)) 1;
 }
 
+/* =========================
+   PROJECT LINKS WITH GITHUB ICON
+========================= */
+
+.card a.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.card a.github-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.card a.github-link:hover svg {
+  transform: scale(1.2);
+  fill: var(--pink);
+}
+
+.card a.github-link:hover {
+  text-decoration: underline;
+}
+
+
 
 /* ===================================
    RESPONSIVE
@@ -383,77 +414,96 @@ body, a, button, .card, .app {
 .tech-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* center horizontally */
-  align-items: center;     /* center vertically */
+  justify-content: center;
+  align-items: center;
   gap: 2.5rem;
   padding: 1rem 0;
 }
 
+/* =========================
+   TECH CARD STYLING
+========================= */
 .tech-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.8rem;
+  padding: 2rem;
   border-radius: 30px;
-  backdrop-filter: blur(30px);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  backdrop-filter: blur(40px);
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
   text-align: center;
-  position: relative;
   overflow: hidden;
   border: 1px solid transparent;
+  perspective: 1200px;
 
-  /* subtle 3D effect */
-  perspective: 1000px;
+  /* subtle floating effect */
+  transform-style: preserve-3d;
 }
 
-/* floating gradient overlay */
+/* gradient overlay + animated shimmer */
 .tech-card::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 30px;
-  background: linear-gradient(135deg, rgba(126,219,255,0.1), rgba(255,142,214,0.1));
+  background: linear-gradient(135deg, rgba(126,219,255,0.08), rgba(255,142,214,0.08));
   z-index: 0;
-  transition: all 0.5s ease;
+  transition: all 0.6s ease;
+  pointer-events: none;
+  filter: blur(10px);
 }
 
+/* neon glow on hover */
+.tech-card:hover::before {
+  background: linear-gradient(135deg, rgba(126,219,255,0.3), rgba(255,142,214,0.3));
+  transform: rotate(10deg) scale(1.05);
+  opacity: 1;
+}
+
+/* icon styling */
 .tech-card img {
   width: 64px;
   height: 64px;
   object-fit: contain;
   margin-bottom: 0.8rem;
   z-index: 1;
+  transition: transform 0.4s ease;
 }
 
+/* icon hover lift */
+.tech-card:hover img {
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* label styling */
 .tech-card p {
   font-weight: 700;
   font-size: 1rem;
   color: var(--text-dark);
   z-index: 1;
+  transition: color 0.3s ease;
 }
 
-/* dark/light mode background */
+/* dark/light mode backgrounds */
 .app.dark .tech-card {
-  background: rgba(30,30,40,0.5);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(20, 20, 30, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .app:not(.dark) .tech-card {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid #ddd;
 }
 
-/* hover effects: lift, glow, rotate gradient, subtle scale */
+/* hover: 3D lift, shadow, glow */
 .tech-card:hover {
-  transform: translateY(-10px) scale(1.1) rotateX(5deg);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25), 0 0 20px rgba(126,219,255,0.15);
-}
-
-.tech-card:hover::before {
-  opacity: 0.9;
-  background: linear-gradient(135deg, rgba(126,219,255,0.25), rgba(255,142,214,0.25));
-  transform: rotate(5deg);
+  transform: translateY(-12px) rotateX(6deg) rotateY(3deg) scale(1.08);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(126, 219, 255, 0.2),
+    0 0 30px rgba(255, 142, 214, 0.2);
 }
 
 /* responsive tweaks */
@@ -469,21 +519,16 @@ body, a, button, .card, .app {
 
 @media (max-width: 480px) {
   .tech-card {
-    padding: 1.2rem;
-    border-radius: 20px;
+    padding: 1.5rem;
+    border-radius: 22px;
   }
 }
 
-/* ensures cursor-hover works with your CustomCursor */
+/* cursor hover compatibility */
 .tech-card.cursor-hover {
-  cursor: none; /* keep hidden default */
+  cursor: none;
 }
 
-/* optional: slightly emphasize hover with glow */
-.tech-card.cursor-hover:hover {
-  transform: translateY(-10px) scale(1.1) rotateX(5deg);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25), 0 0 25px rgba(126,219,255,0.25);
-}
 
 /* ===================================
             CONTACT

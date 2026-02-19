@@ -1,0 +1,123 @@
+:root {
+  --black: #111111;
+  --pink: #f8c8dc;
+  --blue: #bde0fe;
+  --white: #ffffff;
+  --gray: #777;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.app {
+  display: flex;
+  background: var(--white);
+  color: var(--black);
+  transition: all 0.3s ease;
+}
+
+.app.dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 1.5rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar a {
+  color: var(--pink);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: var(--blue);
+}
+
+.dark-toggle {
+  font-size: 0.9rem;
+}
+
+/* CONTENT */
+
+.content {
+  flex: 1;
+  padding: 4rem;
+}
+
+/* HERO */
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--pink);
+}
+
+.about {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  max-width: 500px;
+}
+
+.location {
+  margin-top: 0.5rem;
+  color: var(--blue);
+}
+
+/* SECTIONS */
+
+.section {
+  margin-top: 5rem;
+}
+
+.section h2 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: var(--blue);
+}
+
+/* CARD */
+
+.card {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  transition: 0.3s;
+}
+
+.app.dark .card {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.card h3 {
+  color: var(--pink);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--gray);
+}

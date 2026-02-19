@@ -1,21 +1,20 @@
-/* ===============================
-   ROOT VARIABLES
-================================= */
+/* ===================================
+              ROOT
+=================================== */
 
 :root {
-  --pink: #f7b5d8;
-  --blue: #a8d8ff;
+  --pink: #ff8ed6;
+  --blue: #7edbff;
 
-  --dark-bg: #0e0e11;
-  --dark-card: #1a1a20;
-  --dark-text: #ffffff;
+  --dark-bg: #0c0c10;
+  --dark-surface: rgba(255, 255, 255, 0.05);
+  --light-bg: #f9f7fc;
+  --light-surface: #ffffff;
 
-  --light-bg: #faf7fb;
-  --light-card: #ffffff;
-  --light-text: #111827;
+  --text-dark: #ffffff;
+  --text-light: #111827;
 
-  --glow-pink: 0 0 25px rgba(247, 181, 216, 0.5);
-  --glow-blue: 0 0 25px rgba(168, 216, 255, 0.5);
+  --transition: 0.4s cubic-bezier(.25,.8,.25,1);
 }
 
 * {
@@ -23,39 +22,73 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", system-ui, sans-serif;
-  scroll-behavior: smooth;
 }
 
-/* ===============================
-   APP THEMES
-================================= */
+body {
+  overflow-x: hidden;
+}
+
+body, a, button, .card, .app {
+  cursor: none !important;
+}
+
+/* ===================================
+              APP
+=================================== */
 
 .app {
   display: flex;
   min-height: 100vh;
-  transition: all 0.4s ease;
+  transition: var(--transition);
+  position: relative;
 }
-
-/* DARK DEFAULT */
 
 .app.dark {
-  background: radial-gradient(circle at top left, #141419, #0e0e11);
-  color: var(--dark-text);
+  background: var(--dark-bg);
+  color: var(--text-dark);
 }
-
-/* LIGHT MODE */
 
 .app:not(.dark) {
   background: var(--light-bg);
-  color: var(--light-text);
+  color: var(--text-light);
 }
 
-/* ===============================
-   SIDEBAR
-================================= */
+/* ===================================
+         BACKGROUND EFFECTS
+=================================== */
+
+.bg-gradient {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--pink), transparent 60%);
+  top: -200px;
+  right: -200px;
+  opacity: 0.15;
+  filter: blur(80px);
+  animation: float 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.03;
+  z-index: 0;
+}
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(40px); }
+}
+
+/* ===================================
+            SIDEBAR
+=================================== */
 
 .sidebar {
-  width: 250px;
+  width: 260px;
   height: 100vh;
   position: sticky;
   top: 0;
@@ -63,256 +96,283 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.4s ease;
+  backdrop-filter: blur(20px);
+  z-index: 10;
+  transition: var(--transition);
 }
-
-/* Dark Sidebar */
 
 .app.dark .sidebar {
-  background: linear-gradient(180deg, #141419, #1a1a20);
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(20, 20, 25, 0.6);
+  border-right: 1px solid rgba(255,255,255,0.05);
 }
 
-/* Light Sidebar */
-
 .app:not(.dark) .sidebar {
-  background: #ffffff;
+  background: rgba(255,255,255,0.7);
   border-right: 1px solid #eee;
 }
 
-/* Nav Links */
 
 .sidebar nav {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.2rem;
 }
 
 .sidebar a {
+  font-size: 1.15rem;
+  font-weight: 800;
   text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 700;
   position: relative;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
-
-/* Dark link style */
 
 .app.dark .sidebar a {
-  color: var(--pink);
+  color: #fff;
 }
-
-.app.dark .sidebar a:hover {
-  color: var(--blue);
-  transform: translateX(6px);
-  text-shadow: var(--glow-blue);
-}
-
-/* Light link style */
 
 .app:not(.dark) .sidebar a {
-  color: #111827;
+  color: #111;
 }
 
-.app:not(.dark) .sidebar a:hover {
-  color: #ff6ec7;
-  transform: translateX(6px);
+.sidebar a::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--pink), var(--blue));
+  opacity: 0;
+  transition: var(--transition);
 }
 
-/* ===============================
-   MODE TOGGLE BUTTON
-================================= */
+.sidebar a:hover {
+  transform: translateX(8px);
+}
+
+.sidebar a:hover::before {
+  opacity: 1;
+}
+
+/* ===================================
+          TOGGLE BUTTON
+=================================== */
 
 .mode-toggle {
-  padding: 1rem;
-  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  border-radius: 40px;
   border: none;
+  font-weight: 800;
   cursor: pointer;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
 }
-
-/* Dark Mode Button */
 
 .app.dark .mode-toggle {
   background: linear-gradient(90deg, var(--pink), var(--blue));
   color: #111;
-  box-shadow: var(--glow-pink);
+  box-shadow: 0 10px 25px rgba(255, 142, 214, 0.4);
 }
-
-.app.dark .mode-toggle:hover {
-  transform: scale(1.05);
-}
-
-/* Light Mode Button */
 
 .app:not(.dark) .mode-toggle {
-  background: #111827;
+  background: #111;
   color: white;
 }
 
-.app:not(.dark) .mode-toggle:hover {
-  transform: scale(1.05);
+.mode-toggle:hover {
+  transform: scale(1.08);
 }
 
-/* ===============================
-   CONTENT
-================================= */
+/* ===================================
+           CONTENT
+=================================== */
 
 .content {
   flex: 1;
-  padding: 6rem;
+  padding: 7rem 8rem;
+  position: relative;
+  z-index: 5;
 }
 
-/* ===============================
-   HERO
-================================= */
+/* ===================================
+             HERO
+=================================== */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
 .hero h1 {
-  font-size: 4.5rem;
+  font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 900;
-  letter-spacing: -2px;
-  margin-bottom: 1.5rem;
+  letter-spacing: -3px;
+  line-height: 1;
+  margin-bottom: 2rem;
 }
-
-/* Dark hero gradient */
 
 .app.dark .hero h1 {
   background: linear-gradient(90deg, var(--pink), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: var(--glow-pink);
 }
 
-/* Light hero solid */
-
-.app:not(.dark) .hero h1 {
-  color: #111827;
-}
-
-.about {
-  font-size: 1.3rem;
-  max-width: 650px;
-  line-height: 1.8;
-  opacity: 0.85;
-}
-
-.location {
+.hero .about {
+  font-size: 1.4rem;
+  max-width: 700px;
+  line-height: 1.9;
+  font-weight: 500;
+  opacity: 0.9;
   margin-top: 1rem;
+}
+
+.hero .location {
+  margin-top: 1.5rem;
   font-weight: 700;
+  letter-spacing: 1px;
   color: var(--blue);
 }
 
-/* ===============================
-   SECTIONS
-================================= */
+/* ===================================
+            SECTION STYLE
+=================================== */
 
 .section {
-  margin-top: 7rem;
+  margin-top: 9rem;
+  position: relative;
 }
 
 .section h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 900;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
 }
 
-/* Dark section heading */
-
-.app.dark .section h2 {
-  color: var(--pink);
+.section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 80px;
+  height: 5px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--pink), var(--blue));
 }
 
-/* Light section heading */
-
-.app:not(.dark) .section h2 {
-  color: #ff6ec7;
-}
-
-/* ===============================
-   CARDS
-================================= */
+/* ===================================
+          PROJECT CARDS 
+=================================== */
 
 .card {
-  padding: 2rem;
-  border-radius: 20px;
-  margin-bottom: 2rem;
-  transition: all 0.4s ease;
+  position: relative;
+  padding: 3rem 2.5rem;
+  border-radius: 32px;
+  margin-bottom: 3rem;
+
+  backdrop-filter: blur(30px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  box-shadow: 
+    inset 0 0 15px rgba(255,255,255,0.05),
+    0 6px 20px rgba(0,0,0,0.05);
+  overflow: hidden;
 }
 
-/* Dark cards */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(126,219,255,0.05), rgba(255,142,214,0.05));
+  z-index: 0;
+  pointer-events: none;
+}
 
 .app.dark .card {
-  background: var(--dark-card);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(135deg, rgba(30,30,40,0.85), rgba(40,40,50,0.7));
+  border: 1px solid rgba(255,255,255,0.12);
 }
-
-.app.dark .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-/* Light cards */
 
 .app:not(.dark) .card {
-  background: var(--light-card);
-  border: 1px solid #eee;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(245,245,250,0.8));
+  border: 1px solid #ddd;
 }
 
-.app:not(.dark) .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    inset 0 0 15px rgba(255,255,255,0.05),
+    0 12px 25px rgba(0,0,0,0.12);
 }
 
 .card h3 {
-  font-size: 1.4rem;
-  font-weight: 800;
-  margin-bottom: 0.8rem;
-}
-
-.app.dark .card h3 {
+  position: relative;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1.2rem;
+  z-index: 1;
   background: linear-gradient(90deg, var(--pink), var(--blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.app:not(.dark) .card h3 {
-  color: #111827;
+.card h3::after {
+  display: none;
 }
 
 .card p {
+  font-size: 1.1rem;
   line-height: 1.7;
+  font-weight: 600;
   opacity: 0.8;
+  text-align: center;
+  z-index: 1;
 }
 
-/* ===============================
-   SCROLLBAR
-================================= */
-
-::-webkit-scrollbar {
-  width: 8px;
+.card {
+  border-image: linear-gradient(90deg, var(--pink), var(--blue)) 1;
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--pink), var(--blue));
-  border-radius: 10px;
-}
 
-/* ===============================
+/* ===================================
    RESPONSIVE
-================================= */
+=================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .sidebar {
     display: none;
   }
 
   .content {
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
   }
+}
 
-  .hero h1 {
-    font-size: 3rem;
-  }
+/* ===================================
+   CUSTOM CURSOR
+=================================== */
+
+.custom-cursor {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  font-size: 22px;
+  z-index: 9999;
+  transition: 
+    transform 0.15s ease,
+    font-size 0.2s ease;
+}
+
+.custom-cursor.cursor-hover {
+  transform: translate(-50%, -50%) scale(1.4);
 }

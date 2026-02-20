@@ -41,6 +41,16 @@ function App() {
           <p className="location">📍 Tampere, Finland</p>
         </section>
 
+        {/* Tiny Download Button */}
+          <a
+            href="public/cv/NoelsAwesomeCVthatwillgeteveryjobeverrr.pdf"
+            download
+            className="cv-download-btn"
+            title="Download my CV"
+          >
+            ⬇
+          </a>
+
         {/* EXPERIENCE */}
           <Section id="experience" title="Work Experience">
           <article

@@ -42,15 +42,18 @@ function App() {
         </section>
 
         {/* EXPERIENCE */}
-        <Section id="experience" title="Experience">
-          <div className="card">
+          <Section id="experience" title="Work Experience">
+          <article
+            className="experience-item"
+            onMouseEnter={(e) => e.currentTarget.classList.add("cursor-hover")}
+            onMouseLeave={(e) => e.currentTarget.classList.remove("cursor-hover")}
+          >
             <h3>Full-stack Developer</h3>
-            <p>Crowdsorsa • 2024 • Intership</p>
+            <p className="role">Crowdsorsa • 2024 • Internship</p>
             <p>
-              Built, designed and helped to maintain multiple full stack projects, mainly using react and node.js.
-              Capabilities in both front and back end development.
+              Designed and maintained full-stack projects with React and Node.js, gaining hands-on experience in both front-end and back-end development.
             </p>
-          </div>
+          </article>
         </Section>
 
         {/* PROJECTS */}
@@ -91,12 +94,12 @@ function App() {
         <p>Crypto & Meme Coin Mock Trading Simulator</p>
         <ProjectImages images={[rich1, rich2, rich3]} />
         <a
-          href="https://github.com/TwizzyNoel/2026Portfolio/tree/main/src/projects/harj9"
+          href="https://github.com/TwizzyNoel/twizzyRich"
           target="_blank"
           rel="noopener noreferrer"
           className="github-link"
         >
-          View on GitHub
+          Peep on GitHub twizz
         </a>
       </div>
        </Section>

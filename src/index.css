@@ -344,6 +344,49 @@ body, a, button, .card, .app {
   border-image: linear-gradient(90deg, var(--pink), var(--blue)) 1;
 }
 
+/* ==============================
+   EXPERIENCE SECTION STYLING
+============================== */
+
+.experience-item {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  padding: 0; /* no box/card padding */
+  font-size: 1.3rem;
+  line-height: 2;
+  font-weight: 600;
+  color: var(--text-dark);
+  position: relative;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+/* Optional hover effect: subtle gradient glow */
+.experience-item:hover h3 {
+  background: linear-gradient(90deg, var(--pink), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateX(5px);
+}
+
+.experience-item h3 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item .role {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--blue);
+  margin-bottom: 0.8rem;
+}
+
+/* subtle floating effect on entire item */
+.experience-item:hover {
+  transform: translateY(-5px);
+}
+
 /* =========================
    PROJECT LINKS WITH GITHUB ICON
 ========================= */
@@ -407,6 +450,10 @@ body, a, button, .card, .app {
 
 .custom-cursor.cursor-hover {
   transform: translate(-50%, -50%) scale(1.4);
+}
+
+.experience-item.cursor-hover {
+  cursor: none;
 }
 
 /* =========================

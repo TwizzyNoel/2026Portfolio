@@ -352,7 +352,7 @@ body, a, button, .card, .app {
   text-align: left;
   max-width: 800px;
   margin: 0 auto 3rem auto;
-  padding: 0; /* no box/card padding */
+  padding: 0; 
   font-size: 1.3rem;
   line-height: 2;
   font-weight: 600;
@@ -361,7 +361,10 @@ body, a, button, .card, .app {
   transition: transform 0.4s ease, color 0.4s ease;
 }
 
-/* Optional hover effect: subtle gradient glow */
+.app:not(.dark) .experience-item {
+  color: var(--text-light);
+}
+
 .experience-item:hover h3 {
   background: linear-gradient(90deg, var(--pink), var(--blue));
   -webkit-background-clip: text;
@@ -485,12 +488,9 @@ body, a, button, .card, .app {
   overflow: hidden;
   border: 1px solid transparent;
   perspective: 1200px;
-
-  /* subtle floating effect */
   transform-style: preserve-3d;
 }
 
-/* gradient overlay + animated shimmer */
 .tech-card::before {
   content: '';
   position: absolute;
@@ -503,14 +503,12 @@ body, a, button, .card, .app {
   filter: blur(10px);
 }
 
-/* neon glow on hover */
 .tech-card:hover::before {
   background: linear-gradient(135deg, rgba(126,219,255,0.3), rgba(255,142,214,0.3));
   transform: rotate(10deg) scale(1.05);
   opacity: 1;
 }
 
-/* icon styling */
 .tech-card img {
   width: 64px;
   height: 64px;
@@ -520,12 +518,10 @@ body, a, button, .card, .app {
   transition: transform 0.4s ease;
 }
 
-/* icon hover lift */
 .tech-card:hover img {
   transform: translateY(-5px) scale(1.1);
 }
 
-/* label styling */
 .tech-card p {
   font-weight: 700;
   font-size: 1rem;
@@ -534,7 +530,6 @@ body, a, button, .card, .app {
   transition: color 0.3s ease;
 }
 
-/* dark/light mode backgrounds */
 .app.dark .tech-card {
   background: rgba(20, 20, 30, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -545,7 +540,6 @@ body, a, button, .card, .app {
   border: 1px solid #ddd;
 }
 
-/* hover: 3D lift, shadow, glow */
 .tech-card:hover {
   transform: translateY(-12px) rotateX(6deg) rotateY(3deg) scale(1.08);
   box-shadow: 
@@ -554,7 +548,6 @@ body, a, button, .card, .app {
     0 0 30px rgba(255, 142, 214, 0.2);
 }
 
-/* responsive tweaks */
 @media (max-width: 768px) {
   .tech-card img {
     width: 56px;
@@ -572,7 +565,6 @@ body, a, button, .card, .app {
   }
 }
 
-/* cursor hover compatibility */
 .tech-card.cursor-hover {
   cursor: none;
 }

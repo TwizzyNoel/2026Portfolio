@@ -1,0 +1,7 @@
+node_modules/
+/node_modules
+*.env*
+/build
+build/
+database/dev.sqlite3
+database/knexfile.js

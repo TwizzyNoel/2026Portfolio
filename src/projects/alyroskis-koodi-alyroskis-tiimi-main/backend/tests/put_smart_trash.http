@@ -1,0 +1,7 @@
+PUT http://localhost:3001/smart_trash/empty HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInVzZXJfdHlwZSI6MiwiZW1haWwiOiJtYWludEBleGFtcGxlLmNvbSIsInBob25lIjoiOTg3NjU0MzIxMCIsImZ1bGxuYW1lIjoiTWFpbnRlbmFuY2UgR3V5IiwiY2FtcHVzSUQiOjEsImlhdCI6MTc2NDgzNDIzNywiZXhwIjoxNzY1NDM5MDM3fQ.jgkL_vTjeEOZevnNeeWxBl33JDA7EYyLUR5-GFqE0Zk
+
+{
+    "ids": [1, 3]
+}

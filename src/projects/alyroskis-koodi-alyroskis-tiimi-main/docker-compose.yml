@@ -1,0 +1,21 @@
+ services:
+      db:
+        image: mysql:8.0
+        container_name: alyroskis-db
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: mypass123
+          MYSQL_DATABASE: alyroskis_db
+        ports:
+          - "3306:3306"
+      phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: alyroskis-phpmyadmin
+        environment:
+          PMA_HOST: db
+          PMA_PORT: 3306
+        ports:
+          - "8081:80"
+        depends_on:
+          - db
+          

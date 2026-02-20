@@ -1,0 +1,106 @@
+/* Load Old London font */
+@font-face {
+    font-family: 'OldLondon';
+    src: url('OldLondon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General body styles */
+body {
+    font-family: 'OldLondon', sans-serif;
+    color: #9c864a;
+    background-color: #311d29;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+/* Container for the quiz */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #3c2d3b; /* Slightly lighter background for readability */
+    border-radius: 8px;
+}
+
+/* Header styles */
+h1 {
+    color: #9c864a;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Fieldset and legend styles */
+fieldset {
+    border: 2px solid #9c864a;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #3c2d3b; /* Same as container background */
+}
+
+legend {
+    color: #9c864a;
+    font-size: 1.2em;
+}
+
+/* Answer options styles */
+.answer-option {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+    color: #9c864a;
+}
+
+.answer-option input {
+    margin-right: 5px;
+}
+
+/* Correct and incorrect answer feedback styles */
+.correct {
+    color: #9c864a;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: #f44336; /* Red color for incorrect answers */
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Form submit buttons styles */
+input[type="submit"] {
+    font-family: 'OldLondon', sans-serif;
+    color: #9c864a;
+    background-color: #311d29;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    background-color: #9c864a;
+    color: #311d29;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #8a7b5b; /* Slightly darker on hover */
+}
+
+/* Score display styles */
+h2 {
+    color: #9c864a;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    text-align: center;
+    color: #9c864a;
+}

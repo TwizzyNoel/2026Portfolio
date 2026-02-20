@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #4fbcff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.welcome {
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 123, 255, 0.15),
+    rgba(0, 200, 255, 0.15)
+  );
+
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.welcome h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+.welcome p {
+  font-size: 1rem;
+  color: #e0e0e0;
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

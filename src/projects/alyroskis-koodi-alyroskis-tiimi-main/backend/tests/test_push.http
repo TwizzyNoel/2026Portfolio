@@ -1,0 +1,10 @@
+POST https://exp.host/--/api/v2/push/send
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1CKi_jR5Aoy-d0-_K9-g82GtbBBTzKgpkNYHSq1C
+
+{
+  "to": "ExponentPushToken[d1AOPjJCLfxwXL2do_AaiQ]",
+  "title": "Hello!",
+  "body": "This is a test push notification"
+}

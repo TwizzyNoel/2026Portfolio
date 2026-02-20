@@ -37,8 +37,8 @@ function App() {
             <h3>Full-stack Developer</h3>
             <p>Crowdsorsa • 2024 • Intership</p>
             <p>
-              Building high-performance React applications with scalable
-              component architecture and polished UI animations.
+              Built, designed and helped to maintain multiple full stack projects, mainly using react and node.js.
+              Capabilities in both fron and back end development.
             </p>
           </div>
         </Section>
@@ -77,10 +77,9 @@ function App() {
 
           {/* Raccoon Fanshop */}
           <div className="card">
-            <h3>Raccoon Fanshop</h3>
+            <h3>Trash tracking application for Tredu (frontend)</h3>
             <p>
-              Simple online shop for people who love raccoons. Used technologies: React, Vite, Knex, MySQL
-            </p>
+              Phone and web applications to track the fullness of the trash bins in Tredu. Sending notifications to staff once theyre full.            </p>
             <a
               href="https://github.com/TwizzyNoel/raccoon-fanshop"
               target="_blank"
@@ -107,9 +106,9 @@ function App() {
 
           {/* Luh Cat Runner */}
           <div className="card">
-            <h3>Luh Cat Runner</h3>
+            <h3>Trivia game built with php</h3>
             <p>
-              A cool spin-off game made by Unity and C#.
+              Pokemon themed trivia game built with php.
             </p>
             <a
               href="https://github.com/TwizzyNoel/luh-cat-runner"
@@ -155,6 +154,9 @@ function App() {
       { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
       { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1280px-Amazon_Web_Services_Logo.svg.png" },
       { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      { name: "Notion", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg" },
+      { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
     ].map((tech) => (
       <div
         key={tech.name}

@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "alyroskis-app",
+    "slug": "alyroskis-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "package": "com.alyroskisapp"
+    },
+    "plugins": ["expo-font", "expo-notifications"],
+    "extra": {
+      "API_BASE": "http://10.0.2.2:3001", 
+      "eas": {
+        "projectId": "c2b601f5-282d-4ea3-aae2-0f822eec15af"
+      },
+      "owner": "irensula"
+    },
+    "owner": "irensula"
+  }
+}

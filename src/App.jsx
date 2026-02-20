@@ -52,7 +52,7 @@ function App() {
               Simple clean weather app made by React and OpenWeather API.
             </p>
             <a
-              href="https://github.com/TwizzyNoel/weather-app"
+              href="https://github.com/TwizzyNoel/2026Portfolio/tree/main/src/projects/react-weather-app"
               target="_blank"
               rel="noopener noreferrer"
               className="github-link"
@@ -81,7 +81,7 @@ function App() {
             <p>
               Phone and web applications to track the fullness of the trash bins in Tredu. Sending notifications to staff once theyre full.            </p>
             <a
-              href="https://github.com/TwizzyNoel/raccoon-fanshop"
+              href="https://github.com/TwizzyNoel/2026Portfolio/tree/main/src/projects/alyroskis-koodi-alyroskis-tiimi-main"
               target="_blank"
               rel="noopener noreferrer"
               className="github-link"
@@ -111,7 +111,7 @@ function App() {
               Pokemon themed trivia game built with php.
             </p>
             <a
-              href="https://github.com/TwizzyNoel/luh-cat-runner"
+              href="https://github.com/TwizzyNoel/2026Portfolio/tree/main/src/projects/harj9"
               target="_blank"
               rel="noopener noreferrer"
               className="github-link"

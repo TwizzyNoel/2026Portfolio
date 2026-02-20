@@ -38,7 +38,7 @@ function App() {
             <p>Crowdsorsa • 2024 • Intership</p>
             <p>
               Built, designed and helped to maintain multiple full stack projects, mainly using react and node.js.
-              Capabilities in both fron and back end development.
+              Capabilities in both front and back end development.
             </p>
           </div>
         </Section>

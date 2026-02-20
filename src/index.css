@@ -222,6 +222,7 @@ body, a, button, .card, .app {
   -webkit-text-fill-color: transparent;
 }
 
+
 .hero .about {
   font-size: 1.4rem;
   max-width: 700px;
@@ -580,4 +581,192 @@ body, a, button, .card, .app {
   text-decoration: underline;
 }
 
+/* ===================================
+            PROJECT IMAGES
+=================================== */
 
+.project-images {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  perspective: 1500px; /* For subtle 3D tilt */
+}
+
+.project-img-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  width: 280px;
+  height: 180px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+/* Neon Gradient Border */
+.project-img-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px; /* creates border effect */
+  background: linear-gradient(135deg, var(--pink), var(--blue));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Overlay for titles or hover effect */
+.project-img-wrapper .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Image itself */
+.project-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  display: block;
+  z-index: 0;
+}
+
+/* Hover effects */
+.project-img-wrapper:hover img {
+  transform: scale(1.05) rotateX(4deg) rotateY(3deg);
+  filter: brightness(1.1);
+}
+
+.project-img-wrapper:hover .overlay {
+  opacity: 1;
+}
+
+/* Glow + shadow on hover */
+.project-img-wrapper:hover {
+  transform: translateY(-12px) rotateX(3deg) rotateY(3deg);
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.25),
+    0 0 25px rgba(126,219,255,0.25),
+    0 0 35px rgba(255,142,214,0.25);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .project-img-wrapper {
+    width: 220px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-img-wrapper {
+    width: 180px;
+    height: 120px;
+  }
+  .project-img-wrapper .overlay {
+    font-size: 1rem;
+  }
+}
+
+
+/* ===================================
+            CONTACT ME
+=================================== */
+
+
+.contact-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, rgba(126,219,255,0.1), rgba(255,142,214,0.1));
+  backdrop-filter: blur(30px);
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  min-width: 300px;
+}
+
+.contact-icon {
+  font-size: 3rem;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.contact-text p {
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.contact-text span {
+  font-size: 1rem;
+  opacity: 0.85;
+  word-break: break-all;
+}
+
+.contact-link:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 
+    0 15px 40px rgba(0,0,0,0.25),
+    0 0 25px rgba(126,219,255,0.3),
+    0 0 35px rgba(255,142,214,0.3);
+  background: linear-gradient(135deg, rgba(126,219,255,0.15), rgba(255,142,214,0.15));
+}
+
+.contact-link:hover .contact-icon {
+  transform: rotate(-10deg) scale(1.2);
+  color: var(--pink);
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-link {
+    min-width: unset;
+    width: 80%;
+    padding: 1.5rem 2rem;
+  }
+
+  .contact-icon {
+    font-size: 2.5rem;
+  }
+
+  .contact-text p {
+    font-size: 1.2rem;
+  }
+}

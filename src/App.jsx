@@ -30,15 +30,17 @@ function App() {
 
       {/* Main Content */}
       <main className="content">
+
         {/* HERO */}
         <section className="hero" id="home">
           <h1>Noel Kivelä</h1>
 
           <p className="about">
-            Full-stack Junior Dev • 19 years old
+            Full-stack Junior Dev with hands-on experience in React, Node.js, and other modern web technologies. 
+            I've maintained full-stack projects, collaborated in cross-functional teams, and quickly adapt to new tools and frameworks.
           </p>
 
-          <p className="location">📍 Tampere, Finland</p>
+          <p className="location">📍 Tampere, Finland • 19 years old</p>
         </section>
 
         {/* Tiny Download Button */}
@@ -61,7 +63,7 @@ function App() {
             <h3>Full-stack Developer</h3>
             <p className="role">Crowdsorsa • 2024 • Internship</p>
             <p>
-              Designed and maintained full-stack projects with React and Node.js, gaining hands-on experience in both front-end and back-end development.
+              Designed and maintained full-stack projects with React, Tailwind and Node.js, gaining hands-on experience in both front-end and back-end development.
             </p>
           </article>
         </Section>
@@ -109,7 +111,7 @@ function App() {
           rel="noopener noreferrer"
           className="github-link"
         >
-          Peep on GitHub twizz
+          peep 1t @ GitHub twÏzz
         </a>
       </div>
        </Section>

@@ -85,7 +85,7 @@ function App() {
         </a>
       </div>
 
-      {/* Raccoon Fanshop */}
+      {/* Tredu Trash */}
       <div className="card">
         <h3>Trash tracking application for Tredu (Android)</h3>
         <p>Phone and web applications to track the fullness of the trash bins in Tredu. Sending notifications to staff once they're full.</p>
@@ -169,6 +169,19 @@ function App() {
         <div className="contact-text">
           <p>GitHub</p>
           <span>github.com/TwizzyNoel</span>
+        </div>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/noel-kivel%C3%A4-a6206518b/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="contact-link"
+      >
+        <div className="contact-icon">💼</div>
+        <div className="contact-text">
+          <p>LinkedIn</p>
+          <span>linkedin.com/in/noel-kivel%C3%A4-a6206518b/</span>
         </div>
       </a>
     </div>

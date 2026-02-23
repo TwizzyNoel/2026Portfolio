@@ -45,7 +45,7 @@ function App() {
 
         {/* Tiny Download Button */}
           <a
-            href="public/cv/NoelCV.pdf"
+            href="/cv/NoelCV.pdf"
             download
             className="cv-download-btn"
             title="Download my CV"

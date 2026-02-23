@@ -32,6 +32,12 @@ body, a, button, .card, .app {
   cursor: none !important;
 }
 
+.project-img-wrapper,
+.project-img-wrapper * {
+  cursor: none !important;
+  user-select: none;
+}
+
 /* ===================================
               APP
 =================================== */

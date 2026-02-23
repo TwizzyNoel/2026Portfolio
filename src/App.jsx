@@ -160,7 +160,7 @@ function App() {
         <div className="contact-icon">📧</div>
         <div className="contact-text">
           <p>Email Me</p>
-          <span>noel.kivela@gmail.com</span>
+          <span>Noel Kivelä</span>
         </div>
       </a>
 
@@ -168,7 +168,7 @@ function App() {
         <div className="contact-icon">💻</div>
         <div className="contact-text">
           <p>GitHub</p>
-          <span>github.com/TwizzyNoel</span>
+          <span>Twizzy Noel</span>
         </div>
       </a>
 
@@ -181,7 +181,7 @@ function App() {
         <div className="contact-icon">💼</div>
         <div className="contact-text">
           <p>LinkedIn</p>
-          <span>linkedin.com/in/noel-kivel%C3%A4-a6206518b/</span>
+          <span>Noel Kivelä</span>
         </div>
       </a>
     </div>
